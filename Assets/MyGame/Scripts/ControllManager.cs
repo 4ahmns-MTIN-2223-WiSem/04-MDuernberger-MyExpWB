@@ -10,6 +10,7 @@ public class ControllManager : MonoBehaviour
     public GameObject daube;
     public GameObject eisstock;
     public TMP_Text distanceText;
+    public TMP_Text pointsText;
     public GameObject player;
 
     private bool wasMoving;
@@ -35,16 +36,24 @@ public class ControllManager : MonoBehaviour
         if (wasMoving && transform.hasChanged)
         {
             actualDistance = Vector3.Distance(daube.transform.position, eisstock.transform.position);
-            //Debug.Log(actualDistance);
 
-            distanceText.text = "Distanz: " + actualDistance.ToString();
+            // Debug.Log(actualDistance);
+            double correctDistance = actualDistance - 0.5;
+            distanceText.text = "Distanz: " + correctDistance.ToString();
 
             //calculate points
-            float points = startDistance - actualDistance;
+            //float points = startDistance - actualDistance;
             //Debug.Log(points);
+
+
+            //points:
+           double negativePoints  = (correctDistance/startDistance)*100;
+            double positivePoints = 100 - negativePoints;
+
+             pointsText.text = "Punkte: " + positivePoints;
         }
 
-     
+
 
         //Wenn aktuelle Geschwindigkeit = 0 --> Punkteanzeige
 

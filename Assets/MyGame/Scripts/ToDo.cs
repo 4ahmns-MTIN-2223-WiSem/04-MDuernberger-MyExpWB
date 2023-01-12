@@ -10,6 +10,7 @@ public class ToDo : MonoBehaviour
         für Spielbereich + eisstöcke + daube werden lichteffekte benötigt
         Eisfläche muss Eisphysics haben
         Toneffekte (sliden auf eis, ...)
+        beim zweiten Schuss --> Anzeige Distanz, reset --> Punkte dazuaddiert
         Vibration auf Controller bei bestimmten Aktionen
         -	while-Schleife: Solange der Spieler nicht 3 Versuche gespielt hat, darf er noch weiterspielen.
         -	If-Statements: (Beispiel) Wenn der Spieler auf der Spielfläche steht, gilt der Schuss.

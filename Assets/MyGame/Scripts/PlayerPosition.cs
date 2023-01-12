@@ -16,13 +16,8 @@ public class PlayerPosition : MonoBehaviour
                 onField = true;
             }
 
-            if (collision.gameObject.tag != "StartField")
-            {
-                Debug.Log("Player is not on field");
-                onField = false;
-            }
 
-            if (onField == false) //Eisstock wird wieder zurückgelegt
+            if (onField == false) //Eisstock wird wieder zurückgelegt, soll nicht auswählbar sein, Message: Step on the Field!
             {
                 Debug.Log("YOU ARE NOT ON THE FIELD!");
                 eisstock.transform.position = new Vector3(-2,-1,-6); //noch falsche Position!
