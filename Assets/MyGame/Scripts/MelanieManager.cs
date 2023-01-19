@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
-public class ControllManager : MonoBehaviour
+public class MelanieManager : MonoBehaviour
 {
     public float pushForce = 10f;
     public Rigidbody rigidB;
@@ -33,36 +34,27 @@ public class ControllManager : MonoBehaviour
         }
        
 
-        if (wasMoving && transform.hasChanged)
-        {
+        
             actualDistance = Vector3.Distance(daube.transform.position, eisstock.transform.position);
 
             // Debug.Log(actualDistance);
             double correctDistance = actualDistance - 0.5;
-            distanceText.text = "Distanz: " + correctDistance.ToString();
+  
+            double shortNumberDistance = Math.Round(correctDistance,2);
+            distanceText.text = "Distanz: " + shortNumberDistance.ToString();
+            
 
-            //calculate points
-            //float points = startDistance - actualDistance;
-            //Debug.Log(points);
-
-
+   
             //points:
            double negativePoints  = (correctDistance/startDistance)*100;
             double positivePoints = 100 - negativePoints;
+           
+            double shortNumberPoints = Math.Round(positivePoints, 0);
+            pointsText.text = "Punkte: " + shortNumberPoints;
+        
 
-             pointsText.text = "Punkte: " + positivePoints;
-        }
 
 
-
-        //Wenn aktuelle Geschwindigkeit = 0 --> Punkteanzeige
-
-        //if (wasMoving && !transform.hasChanged)
-        //{
-        //    float points = 10 - actualDistance;
-        //    distanceText.text = "Punkte: " + points;
-
-        //}
     }
 
  
