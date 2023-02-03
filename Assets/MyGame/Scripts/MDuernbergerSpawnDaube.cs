@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnDaube : MonoBehaviour
+public class MDuernbergerSpawnDaube : MonoBehaviour
 {
     public GameObject objectToSpawn;
     private float xMin;
@@ -18,12 +18,18 @@ public class SpawnDaube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+       // SpawnObject();
+        
         yMin = cubeLV.transform.position.z;
         yMax = cubeRH.transform.position.z;
         xMin = cubeLV.transform.position.x;
         xMax = cubeRH.transform.position.x;
         zHight = cubeRH.transform.position.y;
-        SpawnObject();
+
+        Vector3 spawnPos = new Vector3(Random.Range(xMin, xMax), zHight, Random.Range(yMin, yMax));
+        objectToSpawn.transform.position = new Vector3(Random.Range(xMin, xMax), zHight, Random.Range(yMin, yMax));
+
     }
 
     // Update is called once per frame
@@ -34,7 +40,8 @@ public class SpawnDaube : MonoBehaviour
 
     void SpawnObject()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(xMin, xMax),zHight, Random.Range(yMin, yMax));
-        Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
+       
+       // Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
+ 
     }
 }
